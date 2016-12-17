@@ -28,8 +28,3 @@ function getRow($query){
 
     return $arr;
 }
-
-function db_close() {
-    global $db;
-    if ($db) $db->close();
-}
