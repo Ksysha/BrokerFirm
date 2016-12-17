@@ -51,7 +51,7 @@
       <label for='sumorder'>Sum order:</label>
       <input type='text' required name='sumorder' id='sumorder'>
 
-      <button class='button' type='submit'>Submit</button>";
+      <button class='button' type='submit'>Submit</button></form><p><a href='index.php'>Back</a></p>";
       }
 
   }
@@ -75,7 +75,7 @@
       <label for='sumorder'>Sum order:</label>
       <input type='text' required name='sumorder' id='sumorder'>
 
-      <button class='button' type='submit'>Submit</button>";
+      <button class='button' type='submit'>Submit</button></form><p><a href='index.php'>Back</a></p>";
     }
 ?>
 <?php require ('footer.php');?>

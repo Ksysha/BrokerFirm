@@ -42,7 +42,7 @@
         <label for='phone_client'>Client phone</label>
         <input type='tel' maxlength='7' name='phone_client' id='phone_client'>
 
-        <button class='button' type='submit'>Submit</button>";
+        <button class='button' type='submit'>Submit</button></form><p><a href='index.php'>Back</a></p>";
       }
     }
     else {
@@ -64,7 +64,7 @@
         <label for='phone_client'>Client phone</label>
         <input type='tel' maxlength='7' name='phone_client' id='phone_client'>
 
-        <button class='button' type='submit'>Submit</button>";
+        <button class='button' type='submit'>Submit</button></form><p><a href='index.php'>Back</a></p>";
       }
   ?>
 <?php require ('footer.php');?>
