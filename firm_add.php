@@ -23,7 +23,7 @@
         echo "<h1>Error!</h1>";
       } else {
         echo "<h1>Firm is added! You want to add another?</h1>";
-        echo "<form id='articleForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post' onsubmit='doLogin(this); return false;'>
+        echo "<form id='articleForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
         <label for='name_firm'>Title firm</label>
         <input required type='text' name='name_firm' id='name_firm'>
 
@@ -37,7 +37,7 @@
       }
     }
     else {
-      echo "<form id='firmForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post' onsubmit='doLogin(this); return false;'>
+      echo "<form id='firmForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
         <span class='new_firm'>New firm</span><br>
         <label for='name_firm'>Title firm</label>
         <input type='text' name='name_firm' id='name_firm'>

@@ -25,7 +25,7 @@
         echo "<h1>Error!</h1>";
       } else {
         echo "<h1>Client is added! You want to add another?</h1>";
-        echo "<form id='ClientForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post' onsubmit='doLogin(this); return false;'>
+        echo "<form id='ClientForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
         <label for='name_client'>Client name</label>
         <input required type='text' name='name_client' id='name_client'>
 
@@ -46,7 +46,7 @@
       }
     }
     else {
-      echo "<form id='ClientForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post' onsubmit='doLogin(this); return false;'>
+      echo "<form id='ClientForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
         <span class='new_client'>New client</span><br>
         <label for='name_client'>Client name</label>
         <input required type='text' name='name_client' id='name_client'>
