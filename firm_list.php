@@ -1,8 +1,9 @@
 <?php
 require ('header.php');
+global $db;
 $query="select *
 from firm f JOIN location l ON f.Id_location=l.Id_location;";
-$res=getList($query);
+$res=mysqli_query($db,$query);
 $firm_list=array();
 while($el=mysqli_fetch_assoc($res)) {
     $el['agreements']=array();
@@ -10,7 +11,7 @@ while($el=mysqli_fetch_assoc($res)) {
 }
 $query="select Id_agreement, SumOrder, Id_firm, a.Id_client, CONCAT(Surname, ' ',Name) as Title_client
 from agreement a JOIN client c ON a.Id_client=c.Id_client;";
-$res=getList($query);
+$res=mysqli_query($db,$query);
 while($el=mysqli_fetch_assoc($res)) {
     $agr_list[$el['Id_agreement']]=$el;
     if(isset($firm_list[$el['Id_firm']])) {

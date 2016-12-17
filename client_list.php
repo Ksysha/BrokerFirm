@@ -1,8 +1,9 @@
 <?php
 require ('header.php');
+global $db;
 $query="select *
 from client c JOIN location l ON c.Id_location=l.Id_location;";
-$res=getList($query);
+$res=mysqli_query($db,$query);
 $client_list=array();
 while($el=mysqli_fetch_assoc($res)) {
     $el['agreements']=array();
@@ -10,7 +11,7 @@ while($el=mysqli_fetch_assoc($res)) {
 }
 $query="select Id_agreement, SumOrder, a.Id_firm, a.Id_client, Name_firm
 from agreement a JOIN firm f ON f.Id_firm=a.Id_firm;";
-$res=getList($query);
+$res=mysqli_query($db,$query);
 while($el=mysqli_fetch_assoc($res)) {
     $agr_list[$el['Id_agreement']]=$el;
     if(isset($client_list[$el['Id_client']])) {
@@ -27,7 +28,7 @@ while($el=mysqli_fetch_assoc($res)) {
         <tr>
             <th width="30px">Id</th>
             <th width="200px">Full name</th>
-            <th width="200px">Phone</th>
+            <th width="130px">Phone</th>
             <th>Location</th>
             <th width="300px">Agreements</th>
         </tr>
