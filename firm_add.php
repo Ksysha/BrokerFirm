@@ -33,7 +33,7 @@
           echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
         }
         echo "</select>\n
-        <button class='button' type='submit'>Submit</button></form><p><a href='index.php'>Back</a></p>";
+        <button class='button' type='submit'>Submit</button></form>";
       }
     }
     else {
@@ -48,7 +48,8 @@
           echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
         }
         echo "</select>\n
-        <button class='button' type='submit'>Submit</button></form><p><a href='index.php'>Back</a></p>";
+        <button class='button' type='submit'>Submit</button></form>";
       }
   ?>
+<p><a href='index.php'>Back</a></p>
 <?php require ('footer.php');?>

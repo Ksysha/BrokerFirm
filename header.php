@@ -1,6 +1,5 @@
 <?php
-require ('functions.php');
-$db=db_conn();
+require_once ('connect.php');
 ?>
 <html>
 <head>
