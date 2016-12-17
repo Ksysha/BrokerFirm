@@ -1,55 +1,58 @@
 <?php
 require ('header.php');
 $query="select *
-from firm f JOIN location l ON f.Id_location=l.Id_location;";
+from client c JOIN location l ON c.Id_location=l.Id_location;";
 $res=getList($query);
-$firm_list=array();
+$client_list=array();
 while($el=mysqli_fetch_assoc($res)) {
     $el['agreements']=array();
-    $firm_list[$el['Id_firm']]=$el;
+    $client_list[$el['Id_client']]=$el;
 }
-$query="select Id_agreement, SumOrder, Id_firm, a.Id_client, CONCAT(Surname, ' ',Name) as Title_client
-from agreement a JOIN client c ON a.Id_client=c.Id_client;";
+$query="select Id_agreement, SumOrder, a.Id_firm, a.Id_client, Name_firm
+from agreement a JOIN firm f ON f.Id_firm=a.Id_firm;";
 $res=getList($query);
 while($el=mysqli_fetch_assoc($res)) {
     $agr_list[$el['Id_agreement']]=$el;
-    if(isset($firm_list[$el['Id_firm']])) {
-        $firm_list[$el['Id_firm']]['agreements'][$el['Id_agreement']]=$el;
+    if(isset($client_list[$el['Id_client']])) {
+        $client_list[$el['Id_client']]['agreements'][$el['Id_agreement']]=$el;
     }
 }
 ?>
 
     <script>
-        document.title='Firm list';
+        document.title='Client list';
     </script>
-    <table class="list-table">
+    <table class="list-table" cellspacing="0">
         <thead>
         <tr>
             <th width="30px">Id</th>
-            <th width="200px">Title</th>
+            <th width="200px">Full name</th>
+            <th width="200px">Phone</th>
             <th>Location</th>
             <th width="300px">Agreements</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        foreach($firm_list as $id=>$el) {
+        foreach($client_list as $id=>$el) {
             ?>
             <tr>
-                <td><?=$el['Id_firm']?></td>
-                <td><?=$el['Name_firm']?></td>
+                <td><?=$el['Id_client']?></td>
+                <td><?=$el['Surname'].' '.$el['Name']?></td>
+                <td><?=$el['Phone']?></td>
                 <td><?=$el['Name_city']?></td>
                 <td>
-                <span id="agreements_<?=$el['Id_firm']?>_show" class="show-agreements"
-                      onclick="ShowAgr('<?=$el['Id_firm']?>')">Show</span>
-                <span id="agreements_<?=$el['Id_firm']?>_hide" class="hide-agreements"
-                      onclick="HideAgr('<?=$el['Id_firm']?>')" style="display: none">Hide</span>
-                    <div id="agreements_<?=$el['Id_firm']?>_div" style="display: none">
+                    <span></span>
+                <span id="agreements_<?=$el['Id_client']?>_show" class="show-agreements"
+                      onclick="ShowAgr('<?=$el['Id_client']?>')">Show</span>
+                <span id="agreements_<?=$el['Id_client']?>_hide" class="hide-agreements"
+                      onclick="HideAgr('<?=$el['Id_client']?>')" style="display: none">Hide</span>
+                    <div id="agreements_<?=$el['Id_client']?>_div" style="display: none">
                         <table class="agr-table">
                             <thead>
                             <tr>
                                 <th width="20%">Id</th>
-                                <th width="60%">Client</th>
+                                <th width="60%">Firm</th>
                                 <th width="20%">Sum</th>
                             </tr>
                             </thead>
@@ -59,7 +62,7 @@ while($el=mysqli_fetch_assoc($res)) {
                                 ?>
                                 <tr>
                                     <td><?=$agr_el['Id_agreement']?></td>
-                                    <td><?=$agr_el['Title_client']?></td>
+                                    <td><?=$agr_el['Name_firm']?></td>
                                     <td><?=$agr_el['SumOrder']?></td>
                                 </tr>
                                 <?php
@@ -77,20 +80,20 @@ while($el=mysqli_fetch_assoc($res)) {
     </table>
     <p><a href="index.php">Back</a></p>
     <script>
-        function ShowAgr(firmId) {
-            var div=document.getElementById('agreements_'+firmId+'_div');
+        function ShowAgr(clientId) {
+            var div=document.getElementById('agreements_'+clientId+'_div');
             div.style.display='block';
-            var show=document.getElementById('agreements_'+firmId+'_show');
+            var show=document.getElementById('agreements_'+clientId+'_show');
             show.style.display='none';
-            var hide=document.getElementById('agreements_'+firmId+'_hide');
+            var hide=document.getElementById('agreements_'+clientId+'_hide');
             hide.style.display='block';
         }
-        function HideAgr(firmId) {
-            var div=document.getElementById('agreements_'+firmId+'_div');
+        function HideAgr(clientId) {
+            var div=document.getElementById('agreements_'+clientId+'_div');
             div.style.display='none';
-            var show=document.getElementById('agreements_'+firmId+'_show');
+            var show=document.getElementById('agreements_'+clientId+'_show');
             show.style.display='block';
-            var hide=document.getElementById('agreements_'+firmId+'_hide');
+            var hide=document.getElementById('agreements_'+clientId+'_hide');
             hide.style.display='none';
         }
     </script>
