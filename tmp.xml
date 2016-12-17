@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="agr.xsl"?>
+<agreements>
+<agreement id="1">
+<firm>HotMail</firm>
+<client>Calhoun Dean</client>
+<sum>1000</sum>
+</agreement>
+<agreement id="2">
+<firm>Bonehook</firm>
+<client>Hodges Kelly</client>
+<sum>10000</sum>
+</agreement>
+<agreement id="3">
+<firm>Omobono</firm>
+<client>WifKinson Jacqueline</client>
+<sum>5000</sum>
+</agreement>
+<agreement id="4">
+<firm>Bonehook</firm>
+<client>Anderson Joanne</client>
+<sum>200</sum>
+</agreement>
+<agreement id="5">
+<firm>Droga5</firm>
+<client>Simpson Adam</client>
+<sum>3000</sum>
+</agreement>
+<agreement id="6">
+<firm>DoggyStyleDesigns</firm>
+<client>Anderson Joanne</client>
+<sum>21000</sum>
+</agreement>
+<agreement id="7">
+<firm>Bonehook</firm>
+<client>Backer Brian</client>
+<sum>100</sum>
+</agreement>
+<agreement id="8">
+<firm>DoggyStyleDesigns</firm>
+<client>WifKinson Jacqueline</client>
+<sum>3000</sum>
+</agreement>
+</agreements>

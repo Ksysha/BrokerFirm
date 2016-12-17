@@ -1,5 +1,5 @@
 </body>
 </html>
 <?php
-db_close($db);
+require_once ('disconnect.php');
 ?>
