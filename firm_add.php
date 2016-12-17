@@ -10,12 +10,6 @@
     $location_list_id[]=$el[1];
   }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="./css/all.css">
-</head>
   <?php
     if(isset($_POST["location_firm"]) && isset($_POST["name_firm"])) {
       $location_firm = $_POST["location_firm"];
@@ -57,7 +51,4 @@
         <button class='button' type='submit'>Submit</button>";
       }
   ?>
-<body>
-</body>
-</html>
 <?php require ('footer.php');?>
