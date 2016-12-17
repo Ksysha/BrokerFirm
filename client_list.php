@@ -14,12 +14,10 @@ from agreement a JOIN firm f ON f.Id_firm=a.Id_firm;";
 $res=mysqli_query($db,$query);
 while($el=mysqli_fetch_assoc($res)) {
     $agr_list[$el['Id_agreement']]=$el;
-    if(isset($client_list[$el['Id_client']])) {
+    if(isset($client_list[$el['Id_client']]))
         $client_list[$el['Id_client']]['agreements'][$el['Id_agreement']]=$el;
-    }
 }
 ?>
-
     <script>
         document.title='Client list';
     </script>
@@ -34,16 +32,13 @@ while($el=mysqli_fetch_assoc($res)) {
         </tr>
         </thead>
         <tbody>
-        <?php
-        foreach($client_list as $id=>$el) {
-            ?>
+        <?php foreach($client_list as $id=>$el) { ?>
             <tr>
                 <td><?=$el['Id_client']?></td>
                 <td><?=$el['Surname'].' '.$el['Name']?></td>
                 <td><?=$el['Phone']?></td>
                 <td><?=$el['Name_city']?></td>
                 <td>
-                    <span></span>
                 <span id="agreements_<?=$el['Id_client']?>_show" class="show-agreements"
                       onclick="ShowAgr('<?=$el['Id_client']?>')">Show</span>
                 <span id="agreements_<?=$el['Id_client']?>_hide" class="hide-agreements"
@@ -58,25 +53,19 @@ while($el=mysqli_fetch_assoc($res)) {
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                            foreach($el['agreements'] as $agr_id=>$agr_el) {
-                                ?>
+                            <?php foreach($el['agreements'] as $agr_id=>$agr_el) { ?>
                                 <tr>
                                     <td><?=$agr_el['Id_agreement']?></td>
                                     <td><?=$agr_el['Name_firm']?></td>
                                     <td><?=$agr_el['SumOrder']?></td>
                                 </tr>
-                                <?php
-                            }
-                            ?>
+                            <?php } ?>
                             </tbody>
                         </table>
                     </div>
                 </td>
             </tr>
-            <?php
-        }
-        ?>
+        <?php } ?>
         </tbody>
     </table>
     <p><a href="index.php">Back</a></p>

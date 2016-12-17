@@ -4,6 +4,7 @@
   $query="select Name_city, Id_location from location;";
   $res=mysqli_query($db,$query);
   $location_list=array();
+$location_list_id=array();
 
   while($el=mysqli_fetch_array($res)) {
     $location_list[]=$el[0];
@@ -23,33 +24,21 @@
         echo "<h1>Error!</h1>";
       } else {
         echo "<h1>Firm is added! You want to add another?</h1>";
-        echo "<form id='articleForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
-        <label for='name_firm'>Title firm</label>
-        <input required type='text' name='name_firm' id='name_firm'>
-
-        <label class='label'>Location firm</label>
-        <select name='location_firm' id='location_firm'>";
-        for ($i=0; $i < count($location_list); $i++) {
-          echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
-        }
-        echo "</select>\n
-        <button class='button' type='submit'>Submit</button></form>";
       }
     }
-    else {
-      echo "<form id='firmForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
-        <span class='new_firm'>New firm</span><br>
-        <label for='name_firm'>Title firm</label>
-        <input type='text' name='name_firm' id='name_firm'>
+    echo "<form id='firmForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
+      <span class='new_firm'>New firm</span><br>
+      <label for='name_firm'>Title firm</label>
+      <input type='text' name='name_firm' id='name_firm'>
 
-        <label class='label'>Location firm</label>
-        <select name='location_firm' id='location_firm'>";
-        for ($i=0; $i < count($location_list); $i++) {
-          echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
-        }
-        echo "</select>\n
-        <button class='button' type='submit'>Submit</button></form>";
+      <label class='label'>Location firm</label>
+      <select name='location_firm' id='location_firm'>";
+      for ($i=0; $i < count($location_list); $i++) {
+        echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
       }
+      echo "</select>\n
+      <button class='button' type='submit'>Submit</button></form>";
+
   ?>
 <p><a href='index.php'>Back</a></p>
 <?php require ('footer.php');?>

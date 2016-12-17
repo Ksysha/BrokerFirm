@@ -25,47 +25,27 @@
         echo "<h1>Error!</h1>";
       } else {
         echo "<h1>Client is added! You want to add another?</h1>";
-        echo "<form id='ClientForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
-        <label for='name_client'>Client name</label>
-        <input required type='text' name='name_client' id='name_client'>
-
-        <label for='surname_client'>Client surname</label>
-        <input required type='text' name='surname_client' id='surname_client'>
-
-        <label class='label'>Location client</label>
-        <select name='location_firm' id='location_firm'>";
-        for ($i=0; $i < count($location_list); $i++) {
-          echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
-        }
-        echo "</select>\n
-
-        <label for='phone_client'>Client phone</label>
-        <input type='tel' maxlength='7' name='phone_client' id='phone_client'>
-
-        <button class='button' type='submit'>Submit</button></form>";
       }
     }
-    else {
-      echo "<form id='ClientForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
-        <span class='new_client'>New client</span><br>
-        <label for='name_client'>Client name</label>
-        <input required type='text' name='name_client' id='name_client'>
+    echo "<form id='ClientForm' action='" .htmlentities($_SERVER['PHP_SELF']) ."' method='post'>
+      <span class='new_client'>New client</span><br>
+      <label for='name_client'>Client name</label>
+      <input required type='text' name='name_client' id='name_client'>
 
-        <label for='surname_client'>Client surname</label>
-        <input required type='text' name='surname_client' id='surname_client'>
+      <label for='surname_client'>Client surname</label>
+      <input required type='text' name='surname_client' id='surname_client'>
 
-        <label class='label'>Location client</label>
-        <select name='location_firm' id='location_firm'>";
-        for ($i=0; $i < count($location_list); $i++) {
-          echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
-        }
-        echo "</select>\n
-
-        <label for='phone_client'>Client phone</label>
-        <input type='tel' maxlength='7' name='phone_client' id='phone_client'>
-
-        <button class='button' type='submit'>Submit</button></form>";
+      <label class='label'>Location client</label>
+      <select name='location_firm' id='location_firm'>";
+      for ($i=0; $i < count($location_list); $i++) {
+        echo '<option selected value="'.$location_list_id[$i].'" >'.$location_list[$i];
       }
+      echo "</select>\n
+
+      <label for='phone_client'>Client phone</label>
+      <input type='tel' maxlength='7' name='phone_client' id='phone_client'>
+
+      <button class='button' type='submit'>Submit</button></form>";
   ?>
 <p><a href='index.php'>Back</a></p>
 <?php require ('footer.php');?>
