@@ -23,3 +23,45 @@
 .agr-table {
     width: 100%;
 }
+.new_firm,
+.new_client {
+    font-size: 30px;
+}
+input,
+select {
+    margin: 5px 0 10px 0px;
+  display: block;
+  border-radius: 4px;
+  font: 12px Arial, Tahoma, sans-serif;
+  color: #444;
+  width: 262px;
+  height:27px;
+  border: 1px solid #1F6A7F;
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 1px #C3DEE6, 0 0 0 4px #F9FFF9;
+  outline: none;
+  font: 14px/18px Arial, Tahoma, sans-serif;
+}
+.new_firm,
+.new_client {
+    display: block;
+    margin-bottom: 10px;
+}
+.button {
+    width: 122px;
+    padding: 9px 13px;
+    background: #FEFEFE;
+    border: 1px solid #1F6A7F;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: 'Carrois Gothic', sans-serif;
+    vertical-align: middle;
+    height: 35px;
+    cursor: pointer;
+    background: linear-gradient(#F3F8F3,#E0EEE0);
+    color: #004E63;
+    font-weight: normal;
+    display: inline-block;
+    margin: 20px 0 0px 0px;
+    line-height: 13px;
+}
